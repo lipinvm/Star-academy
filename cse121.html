@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Academy - Welcome</title>
+
+    <!-- Internal CSS Styling -->
+    <style>
+        /* ============================================
+           GENERAL STYLES & RESET
+           ============================================ */
+
+        /* Reset default styles for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f5fa;
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+
+        /* Header styling */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(219, 39, 119, 0.3);
+            z-index: 100;
+            border-bottom: 3px solid #db2777;
+        }
+
+        /* Container for header content */
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        /* School name/logo styling */
+        .school-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(219, 39, 119, 0.5);
+        }
+
+        /* Navigation menu styling */
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Navigation links */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        /* Hover effect on navigation links */
+        nav a:hover {
+            background-color: #db2777;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(219, 39, 119, 0.3);
+        }
+
+        /* ============================================
+           SECTIONS & GENERAL LAYOUT
+           ============================================ */
+
+        /* Styling for sections */
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.15);
+            border-left: 5px solid #db2777;
+        }
+
+        /* Section headings */
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        h2 {
+            color: #db2777;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #db2777;
+            padding-bottom: 0.5rem;
+        }
+
+        /* ============================================
+           HOME SECTION
+           ============================================ */
+
+        /* Home section with banner */
+        #home {
+            text-align: center;
+            background: linear-gradient(135deg, #db2777 0%, #ff69b4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-left: none;
+        }
+
+        /* Welcome message */
+        .welcome-message {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Banner content */
+        .banner-content h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Welcome button */
+        .welcome-btn {
+            background-color: #1a1a1a;
+            color: #ff69b4;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        /* Welcome button hover effect */
+        .welcome-btn:hover {
+            background-color: #ff69b4;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Welcome message alert styling */
+        .alert {
+            background-color: #1a1a1a;
+            color: #ff69b4;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+            border: 2px solid #ff69b4;
+            font-weight: bold;
+        }
+
+        /* Animation for alert message */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+
+        /* About section styling */
+        #about {
+            background-color: white;
+        }
+
+        /* About description */
+        .about-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* ============================================
+           COURSES SECTION
+           ============================================ */
+
+        /* Courses grid layout */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Individual course card */
+        .course-card {
+            background: linear-gradient(135deg, #fff5f9 0%, #f9f5fa 100%);
+            border: 2px solid #db2777;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(219, 39, 119, 0.1);
+        }
+
+        /* Course card hover effect */
+        .course-card:hover {
+            border-color: #1a1a1a;
+            background: linear-gradient(135deg, #ff69b4 0%, #db2777 100%);
+            box-shadow: 0 6px 15px rgba(219, 39, 119, 0.4);
+            transform: translateY(-5px);
+        }
+
+        /* Course card heading */
+        .course-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Course card heading on hover */
+        .course-card:hover h3 {
+            color: white;
+        }
+
+        /* Course description */
+        .course-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Course description on hover */
+        .course-card:hover p {
+            color: white;
+        }
+
+        /* ============================================
+           CONTACT FORM SECTION
+           ============================================ */
+
+        /* Contact section styling */
+        #contact {
+            background-color: white;
+        }
+
+        /* Contact form container */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: linear-gradient(135deg, #fff5f9 0%, #f9f5fa 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(219, 39, 119, 0.15);
+            border: 2px solid #db2777;
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Form labels */
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Form inputs and textarea */
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #db2777;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        /* Focus effect on form inputs */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a1a1a;
+            box-shadow: 0 0 8px rgba(219, 39, 119, 0.5);
+            background-color: #fff5f9;
+        }
+
+        /* Submit button styling */
+        .submit-btn {
+            background: linear-gradient(135deg, #db2777 0%, #ff69b4 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        /* Submit button hover effect */
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.4);
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: #db2777;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+            font-weight: bold;
+        }
+
+        /* Success message styling */
+        .success-message {
+            background: linear-gradient(135deg, #db2777 0%, #ff69b4 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+            border: 2px solid #1a1a1a;
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        /* Footer styling */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ff69b4;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 3px solid #db2777;
+        }
+
+        footer p {
+            font-weight: 500;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN (Mobile First)
+           ============================================ */
+
+        /* Mobile menu toggle button (hidden on larger screens) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ff69b4;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive styles for tablets and smaller screens */
+        @media (max-width: 768px) {
+            /* Show mobile menu toggle */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Hide navigation on mobile (will be toggled with JavaScript) */
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                flex-direction: column;
+                width: 100%;
+                padding: 1rem 0;
+                gap: 0;
+                border-bottom: 3px solid #db2777;
+            }
+
+            /* Show navigation when active */
+            nav.active {
+                display: flex;
+            }
+
+            /* Navigation links on mobile */
+            nav a {
+                padding: 0.75rem 1.5rem;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(219, 39, 119, 0.3);
+            }
+
+            /* Header container adjustments */
+            .header-container {
+                flex-direction: row;
+                padding: 0 1rem;
+            }
+
+            /* Adjust heading sizes for mobile */
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Adjust banner content for mobile */
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+
+            /* Adjust section padding for mobile */
+            section {
+                padding: 1.5rem;
+                margin: 1rem auto;
+            }
+
+            /* Courses grid - single column on mobile */
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 1.3rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .banner-content h1 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER WITH NAVIGATION
+         ============================================ -->
+    <header>
+        <div class="header-container">
+            <!-- School name/logo -->
+            <div class="school-name">⭐ STAR ACADEMY</div>
+            
+            <!-- Mobile menu toggle button -->
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            
+            <!-- Navigation menu -->
+            <nav id="navMenu">
+                <a href="#home" onclick="closeMenu()">Home</a>
+                <a href="#about" onclick="closeMenu()">About</a>
+                <a href="#courses" onclick="closeMenu()">Courses</a>
+                <a href="#contact" onclick="closeMenu()">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HOME SECTION
+         ============================================ -->
+    <section id="home">
+        <div class="banner-content">
+            <h1>Welcome to STAR ACADEMY</h1>
+            <p class="welcome-message">Where Stars Shine Bright and Dreams Come True</p>
+            
+            <!-- Interactive welcome button -->
+            <button class="welcome-btn" onclick="showWelcomeMessage()">
+                ✨ Click to Welcome Yourself!
+            </button>
+            
+            <!-- Alert message that appears when button is clicked -->
+            <div class="alert" id="welcomeAlert">
+                ⭐ Welcome to STAR ACADEMY! Your journey to excellence starts here!
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section id="about">
+        <h2>About STAR ACADEMY</h2>
+        <p class="about-description">
+            STAR ACADEMY is a leading educational institution dedicated to fostering academic excellence 
+            and character development. Our experienced faculty members are committed to providing quality education 
+            in a supportive and nurturing environment where every student can shine.
+        </p>
+        <p class="about-description">
+            Founded in 2015, we have been serving the community by providing comprehensive educational programs 
+            that prepare students for success in their academic and professional endeavors. We believe in holistic 
+            development and encourage our students to excel both academically and personally, becoming the stars of tomorrow.
+        </p>
+        <p class="about-description">
+            Our state-of-the-art facilities, dedicated teachers, and innovative curriculum make STAR ACADEMY 
+            the perfect place for your educational journey. Join us today and be part of a thriving learning community 
+            where your potential is unlimited!
+        </p>
+    </section>
+
+    <!-- ============================================
+         COURSES SECTION
+         ============================================ -->
+    <section id="courses">
+        <h2>Our Courses</h2>
+        
+        <!-- Courses displayed in a responsive grid -->
+        <div class="courses-grid">
+            <!-- Course 1: Mathematics -->
+            <div class="course-card">
+                <h3>📐 Mathematics</h3>
+                <p>
+                    Master fundamental and advanced mathematical concepts including algebra, geometry, 
+                    calculus, and statistics. Our comprehensive approach helps students develop problem-solving skills 
+                    essential for science and engineering fields.
+                </p>
+            </div>
+
+            <!-- Course 2: English Literature -->
+            <div class="course-card">
+                <h3>📚 English Literature</h3>
+                <p>
+                    Explore classic and contemporary literature, develop critical thinking skills, and enhance 
+                    communication abilities. Learn to analyze texts, write persuasively, and express yourself confidently.
+                </p>
+            </div>
+
+            <!-- Course 3: Science -->
+            <div class="course-card">
+                <h3>🔬 Science</h3>
+                <p>
+                    Delve into the fascinating world of Physics, Chemistry, and Biology. Conduct experiments, 
+                    understand natural phenomena, and develop a scientific mindset that enables you to explore 
+                    the universe around us.
+                </p>
+            </div>
+
+            <!-- Course 4: Computer Science -->
+            <div class="course-card">
+                <h3>💻 Computer Science</h3>
+                <p>
+                    Learn programming, web development, and digital literacy. From Python to JavaScript, 
+                    gain practical skills in coding and technology that are in high demand in today's digital world.
+                </p>
+            </div>
+
+            <!-- Course 5: History & Social Studies -->
+            <div class="course-card">
+                <h3>🌍 History & Social Studies</h3>
+                <p>
+                    Understand the past to shape the future. Study world history, geography, economics, and cultural 
+                    diversity. Develop informed perspectives on global issues and become an engaged global citizen.
+                </p>
+            </div>
+
+            <!-- Course 6: Physical Education -->
+            <div class="course-card">
+                <h3>⚽ Physical Education</h3>
+                <p>
+                    Promote physical fitness, teamwork, and healthy lifestyle habits. Participate in various sports 
+                    and activities that enhance your physical well-being and teach valuable life lessons about discipline 
+                    and collaboration.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        
+        <!-- Success message that appears after form submission -->
+        <div class="success-message" id="successMessage">
+            ✓ Thank you! Your message has been sent successfully. We'll get back to you soon!
+        </div>
+        
+        <!-- Contact form -->
+        <div class="contact-form">
+            <form id="contactForm" onsubmit="submitForm(event)">
+                <!-- Name field -->
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                    <span class="error-message" id="nameError">Please enter your name</span>
+                </div>
+
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email address"
+                        required
+                    >
+                    <span class="error-message" id="emailError">Please enter a valid email address</span>
+                </div>
+
+                <!-- Message field -->
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="5" 
+                        placeholder="Enter your message here..."
+                        required
+                    ></textarea>
+                    <span class="error-message" id="messageError">Please enter your message</span>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <p>&copy; 2026 STAR ACADEMY. All rights reserved.</p>
+        <p>Contact: info@staracademy.com | Phone: (555) 123-4567</p>
+    </footer>
+
+    <!-- ============================================
+         INTERNAL JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ============================================
+        // WELCOME MESSAGE FUNCTION
+        // ============================================
+        // This function displays a welcome message when the button is clicked
+        function showWelcomeMessage() {
+            const alertBox = document.getElementById('welcomeAlert');
+            
+            // Toggle the visibility of the alert
+            if (alertBox.style.display === 'block') {
+                alertBox.style.display = 'none';
+            } else {
+                alertBox.style.display = 'block';
+            }
+        }
+
+        // ============================================
+        // MOBILE MENU TOGGLE FUNCTION
+        // ============================================
+        // This function shows/hides the navigation menu on mobile devices
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Toggle menu when hamburger button is clicked
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // ============================================
+        // CLOSE MENU FUNCTION
+        // ============================================
+        // This function closes the mobile menu when a link is clicked
+        function closeMenu() {
+            navMenu.classList.remove('active');
+        }
+
+        // ============================================
+        // FORM VALIDATION FUNCTION
+        // ============================================
+        // This function validates the contact form before submission
+        function validateForm() {
+            // Get form input values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Reset error messages
+            document.getElementById('nameError').style.display = 'none';
+            document.getElementById('emailError').style.display = 'none';
+            document.getElementById('messageError').style.display = 'none';
+
+            let isValid = true;
+
+            // Validate name field (check if it's empty)
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate email field (check if it's empty and has valid email format)
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Please enter your email address';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                // Use helper function to check email format
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate message field (check if it's empty)
+            if (message === '') {
+                document.getElementById('messageError').style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // ============================================
+        // EMAIL VALIDATION HELPER FUNCTION
+        // ============================================
+        // This function checks if an email address has a valid format
+        function isValidEmail(email) {
+            // Regular expression to validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // ============================================
+        // FORM SUBMISSION FUNCTION
+        // ============================================
+        // This function handles form submission
+        function submitForm(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Validate the form
+            if (validateForm()) {
+                // If validation passes, show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+
+                // Clear the form fields
+                document.getElementById('contactForm').reset();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+
+                // In a real application, you would send this data to a server here
+                console.log('Form submitted successfully!');
+            }
+        }
+    </script>
+</body>
+</html>
